@@ -1,6 +1,6 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
+use rand::Rng; // rand is a crate, Rng is a trait
+use std::cmp::Ordering; // std is a crate, cmp is a module, Ordering is an enum
+use std::io; // std is a crate, io is a module
 
 fn main() {
     println!("Guess the number!");
