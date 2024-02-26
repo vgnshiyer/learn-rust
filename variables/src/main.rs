@@ -1,8 +1,9 @@
 fn my_function(x: i32) -> i32 {
-    println!("Hey there! {}", x);
+    println!("Hey there! {x}");
     x
 }
 
+// rust is a statically typed language, which means that it must know the types of all variables at compile time
 fn main() {
     let mut x: i32 = 5;
     println!("The value of x is {}", x);
@@ -57,7 +58,7 @@ fn main() {
             break counter;
         }
     };
-    println!("The result is {}", result);
+    println!("The result is {result}");
 
     let mut number: i32 = 3;
     while number != 0 {
@@ -77,4 +78,43 @@ fn main() {
     for number in (1..4).rev() {
         println!("{}", number);
     }
+
+    let t = true;
+    let f: bool = false;
+    if t {
+        println!("t is true");
+    } else if f {
+        println!("f is true");
+    } else {
+        println!("neither t nor f is true");
+    }
+
+    let y = {
+        let mut x = 3;
+        x += 1;
+        x
+    };
+    println!("The value of y is: {}", y);
+
+    let mut count = 0;
+    'counting_up: loop {
+        println!("Count is {count}");
+
+        let mut remaining = 10;
+        loop {
+            println!("Remaining is {remaining}");
+
+            if remaining == 9 {
+                println!("Break");
+                break;
+            }
+            if count == 2 {
+                println!("Breaking loop 'counting_up");
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+        count += 1;
+    }
+    println!("End of counting");
 }
