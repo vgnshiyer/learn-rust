@@ -45,7 +45,7 @@ fn main() {
 } // scope for x, t, s2, s1 end here
 
 fn takes_ownership(s: String) { // s comes in scope 
-    println!("{s}"); // s is borrowed from the caller
+    println!("{s}"); // s is the new owner
 } // scope ends here, 'drop' is called
 
 fn makes_copy(x: i32) { // x comes in scope
