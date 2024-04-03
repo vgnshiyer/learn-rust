@@ -12,53 +12,10 @@ crate(root)
          └── take_payment
 */
 
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-
-        fn seat_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+mod front_of_house;
+mod back_of_house;
 
 fn deliver_order() {}
-
-mod back_of_house {
-    fn fix_incorrect_order() {
-        cook_order();
-        super::deliver_order(); // super --> go to parent [crate in this case] (cd ..) {can use super as many times to go higher in the tree}
-    }
-
-    fn cook_order() {}
-
-    #[derive(Debug)]
-    pub struct Breakfast {
-        pub toast: String,
-        fruit: String
-    }
-
-    // this function is needed as we can never create a breakfast instance as the fruit field is private.
-    impl  Breakfast {
-        pub fn summer(toast: &str) -> Breakfast {
-            Breakfast {
-                toast: String::from(toast),
-                fruit: String::from("Anaar")
-            }
-        }
-    }
-
-    pub enum Appetizer {
-        Soup,
-        Salad,
-    }
-}
 
 // can bring a function or module in scope using the `use` keyword
 use front_of_house::hosting::add_to_waitlist;
