@@ -1,4 +1,6 @@
 use std::fmt::format;
+use std::collections::HashMap;
+use std::hash::Hash;
 
 fn main() {
     // vectors are collections that dynamically change size --> stored in heap memory
@@ -73,4 +75,38 @@ fn main() {
     for c in s4.bytes() {
         println!("{c}");
     }
+
+    let mut scores = HashMap::new();
+    scores.insert(String::from("blue"), 10);
+    scores.insert(String::from("black"), 20);
+    // hashmaps are stored in the heap memory. They are homogenous, all keys and values must be of same type.
+
+    let score = scores.get("blue").unwrap_or(&0); // if not present, give 0 --> notice that we borrow and not take ownership of the value
+
+    for (key, value) in &scores {
+        println!("{key}: {value}");
+    }
+
+    // hashmap takes ownership of types like string.. not for i32
+
+    // overwriting a value in a hashmap
+    scores.insert(String::from("blue"), 0);
+
+    println!("{:?}!", scores);
+
+    // adding a key and value only if a key isnt present
+
+    scores.entry(String::from("yellow")).or_insert(50); // or_insert returns a mutable reference to the value --> if not exists, enters 50 for the key and returns mutable reference
+
+    // counting word occurences in a sentence
+    let text = "hello world wonderful world";
+
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{:?}!", map);
 }
