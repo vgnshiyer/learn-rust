@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 fn main() {
     // vectors are collections that dynamically change size --> stored in heap memory
 
@@ -45,4 +47,30 @@ fn main() {
         SpreadsheetCell::Float(1.2),
         SpreadsheetCell::Text(String::from("Hello"))
     ];
+
+    // String type 
+    let s = String::from("some text");
+    let mut s = "some text".to_string();
+
+    let s1 = "here";
+    s.push_str(s1); // the push_str method takes a string slice (borrows not take ownership) --> same as s + s1 (&str)
+    println!("{s1}");
+
+    let s2 = String::from("abc");
+
+    // we can only add &str to a String type
+    let s3 = s + &s2; // this statement takes ownership of s and appends a copy of s2 to it
+
+    let s4 = format!("{s2}-{s3}"); // the format does not take owner ship --> it borrows a reference
+
+    // type string cannot be indexed in rust --> because unicode characters are actually stored as byte vector internally.. 
+
+    // best way to deal with strings is to be specific about it (whether you want chars or bytes)
+
+    for c in s4.chars() {
+        println!("{c}");
+    }
+    for c in s4.bytes() {
+        println!("{c}");
+    }
 }
