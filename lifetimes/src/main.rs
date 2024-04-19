@@ -57,7 +57,7 @@ fn main() {
     let first_sentence = novel.split('.').next().expect("No first sentence");
     let excerpt = important_excerpt {
         part: first_sentence
-    }; // first sentence lives as long as except: Valid
+    }; // first sentence lives as long as excerpt: Valid
 
     // You need to specify lifetimes for functions and structs that use references
 

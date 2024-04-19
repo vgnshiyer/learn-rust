@@ -1,5 +1,5 @@
 use std::{cmp::Ordering, io};
-use rand::{thread_rng, Rng};
+use rand::{thread_rng, Rng}; // rand is a crate and thread_rng is a function in the crate
 
 fn main() {
     println!("Guess the secret number!");
