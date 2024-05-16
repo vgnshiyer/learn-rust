@@ -42,7 +42,6 @@ pub fn notify(item: &impl Summary) { // we can only pass types that implement th
 
 // trait bound syntax for the above syntactic sugar
 // pub fn notify<T: Summary>(item: &T)
-// pub fn notify<T: Summary>(item: &T)
 
 // pub fn function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32
 /* Equivalent */

@@ -42,7 +42,7 @@ fn main() {
 
     // How rust compiler avoids dangling references (reference to a memory where the data no longer exists)
     // let reff = get_ref();
-    // solution is to simply pas ownership to the string
+    // solution is to simply pass ownership to the string
     
 } // scope of s and s_len ends here
 
